@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import authRoutes from './router/Auth.js';
 import productRoutes from './router/Products.js';
+import userRoutes from './router/Users.js';
 import mongoose from 'mongoose';
 
 const app = express();
@@ -19,6 +20,7 @@ const connect = async()=> {
 app.use(express.json())
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
 app.listen(process.env.PORT || 8800, () => {
     connect()
